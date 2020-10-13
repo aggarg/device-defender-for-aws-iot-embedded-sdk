@@ -42,7 +42,6 @@ DEFENDER_API_COUNT=7
 UNWINDSET += __CPROVER_file_local_defender_c_matchApi.0:$(DEFENDER_API_COUNT)
 
 PROOF_SOURCES += $(PROOFDIR)/$(HARNESS_FILE).c
-PROOF_SOURCES += $(SRCDIR)/test/cbmc/sources/defender_cbmc_state.c
 PROJECT_SOURCES += $(SRCDIR)/source/defender.c
 
 include ../Makefile.common

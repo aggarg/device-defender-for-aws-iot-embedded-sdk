@@ -25,7 +25,6 @@
  */
 
 #include "defender.h"
-#include "defender_cbmc_state.h"
 
 void harness()
 {
@@ -37,10 +36,10 @@ void harness()
 
     __CPROVER_assume( topicLength < TOPIC_STRING_LENGTH_MAX );
 
-    pTopic = mallocCanFail( topicLength );
-    pOutApi = mallocCanFail( sizeof( *pOutApi ) );
-    ppOutThingName = mallocCanFail( sizeof( *ppOutThingName ) );
-    pOutThingNameLength = mallocCanFail( sizeof( *pOutThingNameLength ) );
+    pTopic = malloc( topicLength );
+    pOutApi = malloc( sizeof( *pOutApi ) );
+    ppOutThingName = malloc( sizeof( *ppOutThingName ) );
+    pOutThingNameLength = malloc( sizeof( *pOutThingNameLength ) );
 
     Defender_MatchTopic( pTopic,
                          topicLength,

@@ -51,3 +51,12 @@ DEFINES += -DDEFENDER_DO_NOT_USE_CUSTOM_CONFIG
 
 # Flags to pass to cmake for building the project
 # ARPA_CMAKE_FLAGS =
+
+# Additional CBMC flags used for property checking
+# TODO - Remove these once they are in the starter kit.
+CHECKFLAGS += --pointer-primitive-check
+CHECKFLAGS += --malloc-may-fail
+CHECKFLAGS += --malloc-fail-null
+
+COVERFLAGS += --malloc-may-fail
+COVERFLAGS += --malloc-fail-null

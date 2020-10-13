@@ -25,7 +25,6 @@
  */
 
 #include "defender.h"
-#include "defender_cbmc_state.h"
 
 void harness()
 {
@@ -36,9 +35,12 @@ void harness()
     DefenderTopic_t api;
     uint32_t * pOutLength;
 
-    pTopicBuffer = mallocCanFail( topicBufferLength );
-    pThingName = mallocCanFail( thingNameLength );
-    pOutLength = mallocCanFail( sizeof( *pOutLength ) );
+    __CPROVER_assume( topicBufferLength < CBMC_MAX_OBJECT_SIZE );
+    __CPROVER_assume( thingNameLength < CBMC_MAX_OBJECT_SIZE );
+
+    pTopicBuffer = malloc( topicBufferLength );
+    pThingName = malloc( thingNameLength );
+    pOutLength = malloc( sizeof( *pOutLength ) );
 
     Defender_GetTopic( pTopicBuffer,
                        topicBufferLength,

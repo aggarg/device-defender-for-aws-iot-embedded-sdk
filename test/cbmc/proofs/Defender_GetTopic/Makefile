@@ -15,7 +15,6 @@ REMOVE_FUNCTION_BODY +=
 UNWINDSET +=
 
 PROOF_SOURCES += $(PROOFDIR)/$(HARNESS_FILE).c
-PROOF_SOURCES += $(SRCDIR)/test/cbmc/sources/defender_cbmc_state.c
 PROJECT_SOURCES += $(SRCDIR)/source/defender.c
 
 include ../Makefile.common
